@@ -57,10 +57,10 @@ async function loadAdminData() {
     if ($('#store-logo')) { $('#store-logo').value = catalog.logoUrl || localStorage.getItem(storeLogoKey) || defaultLogo; setBrandLogo($('#store-logo').value); }
     if (ordersResponse.ok) orders = await ordersResponse.json();
     apiAvailable = true;
-    if (catalogWasEmpty) {
+    /*if (catalogWasEmpty) {
       await Promise.all(categories.map(category => syncAdmin('/api/admin/categories', { method: 'POST', body: JSON.stringify(category) })));
       await Promise.all(menu.map(item => syncAdmin('/api/admin/menu', { method: 'POST', body: JSON.stringify(item) })));
-    }
+    }*/
     renderCategoryOptions(); refresh();
   } catch (error) {
     console.warn('Using local admin fallback:', error.message);
