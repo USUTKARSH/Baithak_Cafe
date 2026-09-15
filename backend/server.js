@@ -145,7 +145,7 @@ app.patch('/api/admin/categories/reorder', requireAdmin, async (req, res) => {
 app.post('/api/admin/menu', requireAdmin, async (req, res) => {
   if (!await databaseReady(res)) return;
   const position = await MenuItem.countDocuments({ category: req.body.category });
-  const item = await MenuItem.create({ ...req.body, id: Date.now(), position });
+  const item = await MenuItem.create({ ...req.body, id: req.body.id || Date.now(), position });
   res.status(201).json(item);
 });
 
