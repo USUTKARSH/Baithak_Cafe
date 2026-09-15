@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baithak Cafe | Order ahead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Baithak Cafe home">
+        <span class="brand-mark"><img class="brand-logo" data-brand-logo src="assets/logo.jpg" alt="Baithak Cafe logo"><span class="brand-fallback" hidden>B</span></span>
+        <span><strong>Baithak Cafe</strong><small>Cafe & Kitchen</small></span>
+      </a>
+      <div class="location-pill" aria-label="Current cafe location">
+        <span class="pin">+</span>
+        <span><small>Ordering at</small><strong>Knowledge Park 3</strong></span>
+      </div>
+      <!-- <a class="admin-link" href="admin.html">Admin <span>↗</span></a> -->
+      <button class="profile-button" aria-label="Open profile">CB</button>
+    </header>
+
+    <main id="top">
+      <section class="welcome-section">
+        <div class="welcome-copy">
+          <p class="eyebrow">Good morning, User</p>
+          <h1>Make your day<br><em>taste better.</em></h1>
+          <p class="welcome-note">Freshly made, thoughtfully sourced, and ready when you are.</p>
+        </div>
+        <div class="hero-art" aria-label="A cup of coffee and pastry">
+          <div class="sun-disc"></div>
+          <div class="hero-card hero-card-back"></div>
+          <div class="hero-card hero-card-front">
+            <span class="steam steam-one"></span><span class="steam steam-two"></span>
+            <div class="cup"><span class="cup-latte"></span></div>
+            <div class="saucer"></div>
+          </div>
+          <span class="hero-label">Roasted<br>this morning</span>
+        </div>
+      </section>
+
+      <section class="order-layout">
+        <div class="menu-column">
+          <div class="section-heading">
+            <div><p class="eyebrow">The menu</p><h2>Find your favorite</h2></div>
+            <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search menu" aria-label="Search menu"></label>
+          </div>
+          <nav id="category-tabs" class="category-tabs" aria-label="Menu categories"></nav>
+          <div id="menu-grid" class="menu-grid"></div>
+          <p id="empty-state" class="empty-state" hidden>No matches yet. Try a different search.</p>
+        </div>
+
+        <aside id="cart-panel" class="cart-panel" aria-label="Your order">
+          <div class="cart-heading"><div><p class="eyebrow">Your order</p><h2 id="cart-title">Pickup order</h2></div><span id="cart-count" class="count-badge">0</span></div>
+          <div class="cart-service-choice"><span>Order type</span><div class="service-toggle" role="group" aria-label="Order type"><button class="service-option active" data-service="pickup"><span>↗</span> Pickup <small>15–20 min</small></button><button class="service-option" data-service="delivery"><span>⌂</span> Delivery <small>30–40 min</small></button></div></div>
+          <div id="cart-items" class="cart-items"></div>
+          <div id="cart-empty" class="cart-empty"><span class="empty-cup">◌</span><strong>Your order is waiting</strong><p>Add something delicious from the menu.</p></div>
+          <div class="cart-summary">
+            <div><span>Subtotal</span><strong id="subtotal">₹0.00</strong></div>
+            <div id="delivery-charge-row" hidden><span>Delivery charge</span><strong id="delivery-charge">₹10.00</strong></div>
+            <div class="total-row"><span>Total</span><strong id="total">₹0.00</strong></div>
+          </div>
+          <button id="checkout-button" class="checkout-button" disabled>Continue to checkout <span>→</span></button>
+          <p class="secure-note">⌁ Secure checkout · No account needed</p>
+        </aside>
+      </section>
+    </main>
+
+    <footer><span>baithak cafe</span><span>Open daily 7am – 4pm</span><span>Questions? hello@baithak.cafe</span></footer>
+  </div>
+
+  <button id="floating-cart" class="floating-cart" aria-label="Scroll to your order"><span class="floating-cart-icon">Cart</span><span id="floating-cart-count" class="floating-cart-count">0</span></button>
+
+  <div id="checkout-modal" class="modal-backdrop" hidden>
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <button id="close-modal" class="close-button" aria-label="Close checkout">×</button>
+      <div id="checkout-form-view">
+        <p class="eyebrow">Almost there</p><h2 id="checkout-title">Complete your order</h2>
+        <p class="modal-intro">We’ll have your <span id="modal-service">pickup</span> order ready at Riverside.</p>
+        <form id="checkout-form">
+          <label>Full name<input required name="name" placeholder="Jamie Rivera"></label>
+          <label>Mobile number<input required name="phone" type="tel" placeholder="(555) 123-4567"></label>
+          <label>Table number / address<input required name="location" placeholder="Table 12 or 123 Main Street"></label>
+          <label>Preferred time<select name="time"><option>ASAP · 15–20 min</option><option>8:30 AM</option><option>9:00 AM</option><option>9:30 AM</option></select></label>
+          <button class="checkout-button" type="submit">Place order · <span id="modal-total">₹0.00</span></button>
+        </form>
+      </div>
+      <div id="success-view" class="success-view" hidden><div class="success-icon">✓</div><p class="eyebrow">Order confirmed</p><h2>You’re all set.</h2><p id="success-message">We’ll see you soon with something delicious.</p><button id="done-button" class="checkout-button">Back to menu</button></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
