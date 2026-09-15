@@ -19,8 +19,9 @@ const defaultCategories = [
   { id: 'sweet', name: 'Something sweet' },
   { id: 'drinks', name: 'Drinks' }
 ];
-const storedMenu = JSON.parse(localStorage.getItem(menuStorageKey) || 'null');
-let menu = storedMenu ? [...storedMenu, ...seedMenu.filter(seedItem => !storedMenu.some(item => item.id === seedItem.id))] : [...seedMenu];
+/*const storedMenu = JSON.parse(localStorage.getItem(menuStorageKey) || 'null');
+let menu = storedMenu ? [...storedMenu, ...seedMenu.filter(seedItem => !storedMenu.some(item => item.id === seedItem.id))] : [...seedMenu];*/
+let menu = JSON.parse(localStorage.getItem(menuStorageKey) || '[]');
 const storedCategories = JSON.parse(localStorage.getItem(categoriesStorageKey) || 'null');
 let categories = storedCategories ? [...storedCategories, ...defaultCategories.filter(category => !storedCategories.some(saved => saved.id === category.id))] : [...defaultCategories];
 
