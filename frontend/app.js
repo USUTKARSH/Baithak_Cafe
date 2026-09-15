@@ -1,4 +1,4 @@
-const seedMenu = [
+/*const seedMenu = [
   { id: 1, name: 'Oat milk latte', description: 'Double espresso, silky oat milk', price: 5.25, category: 'coffee', image: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80' },
   { id: 2, name: 'Berry ricotta toast', description: 'Sourdough, whipped ricotta, fresh berries', price: 8.50, category: 'breakfast', image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&q=80' },
   { id: 3, name: 'Green garden bowl', description: 'Avocado, greens, grains, lemon tahini', price: 12.75, category: 'lunch', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80' },
@@ -9,16 +9,16 @@ const seedMenu = [
   { id: 8, name: 'Chocolate tahini cookie', description: 'Dark chocolate, sesame, flaky salt', price: 3.75, category: 'sweet', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80' },
   { id: 10, name: 'Fresh mint lemonade', description: 'Pressed lemon, mint, sparkling water', price: 4.50, category: 'drinks', image: 'https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?auto=format&fit=crop&w=500&q=80' },
   { id: 11, name: 'Mango lassi', description: 'Creamy yogurt, ripe mango, cardamom', price: 5.25, category: 'drinks', image: 'https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=500&q=80' }
-];
+];*/
 const menuStorageKey = 'baithak-cafe-menu';
 const categoriesStorageKey = 'baithak-cafe-categories';
-const defaultCategories = [
+/*const defaultCategories = [
   { id: 'coffee', name: 'Coffee' },
   { id: 'breakfast', name: 'Breakfast' },
   { id: 'lunch', name: 'Lunch' },
   { id: 'sweet', name: 'Something sweet' },
   { id: 'drinks', name: 'Drinks' }
-];
+];*/
 const storedMenu = JSON.parse(localStorage.getItem(menuStorageKey) || 'null');
 let menu = storedMenu ? [...storedMenu, ...seedMenu.filter(seedItem => !storedMenu.some(item => item.id === seedItem.id))] : [...seedMenu];
 const storedCategories = JSON.parse(localStorage.getItem(categoriesStorageKey) || 'null');
